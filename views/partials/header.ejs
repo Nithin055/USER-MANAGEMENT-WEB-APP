@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <% if (user) { %>
+        <li><a href="/logout">Logout</a></li>
+        <% if (user.role === 'student') { %>
+          <li><a href="/student-dashboard">Dashboard</a></li>
+          <li><a href="/change-password">Change Password</a></li>
+        <% } else if (user.role === 'admin') { %>
+          <li><a href="/admin/dashboard">Admin Dashboard</a></li>
+        <% } %>
+      <% } else { %>
+        <!-- Links will be moved to the auth pages -->
+      <% } %>
+    </ul>
+  </nav>
+  <div class="container">
